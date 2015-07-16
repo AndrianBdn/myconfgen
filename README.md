@@ -15,7 +15,7 @@ Run as
 
 mysql_ram_gb parameter is specified in gigabytes. 
 
-## Test Result 
+## Testing
 
 This has been tried on CentOS 7 using Percona Server 5.6. Potentially it could work with other MySQL flawors and probably with other Linux distributions. 
 
