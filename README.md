@@ -1,9 +1,9 @@
-# MySQL /etc/my.cnf generator
+# MySQL my.cnf generator
 
 ## Description
 
 A python2 script that outputs MySQL my.cnf config which is based on some known good practices (tools.percona.com Configuration Wizard,
-percona.com/blog, some existing MySQL configs) and mostly amount of RAM allocated for MySQL. 
+percona.com/blog, some existing MySQL configs) and mostly amount of RAM allocated for MySQL.
 
 ## Usage
 
