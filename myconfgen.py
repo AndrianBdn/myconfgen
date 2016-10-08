@@ -2,6 +2,7 @@
 
 import sys
 import math
+import random
 from textwrap import dedent
 
 defaults = {
@@ -13,7 +14,9 @@ defaults = {
     'query_cache_size' : 0, 
 
     'long_query_time' : 2, 
-    'max_connections' : 500
+    'max_connections' : 500, 
+
+    'server_id' : random.randint(100000, 999999)
 }
 
 
@@ -50,6 +53,9 @@ def output_my_cnf(_metaconf):
     # DATA STORAGE #
     datadir                        = {mysql_dir}
 
+    # SERVER ID # 
+    server-id                      = {server_id}
+    
     # BINARY LOGGING #
     log-bin                        = {mysql_dir}/mysql-bin
     expire-logs-days               = 14
