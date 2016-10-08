@@ -44,8 +44,8 @@ def output_my_cnf(_metaconf):
     pid-file                       = {pid_file}
 
     # MyISAM #
-    key-buffer-size                = 32M
-    myisam-recover                 = FORCE,BACKUP
+    # key-buffer-size                = 32M
+    # myisam-recover                 = FORCE,BACKUP
 
     # SAFETY #
     max-allowed-packet             = 16M
@@ -53,7 +53,6 @@ def output_my_cnf(_metaconf):
     skip-name-resolve
     sql-mode                       = NO_ENGINE_SUBSTITUTION,NO_AUTO_CREATE_USER
     sysdate-is-now                 = 1
-    innodb                         = FORCE
     innodb-strict-mode             = 1
 
     # DATA STORAGE #
@@ -63,10 +62,7 @@ def output_my_cnf(_metaconf):
     server-id                      = {server_id}
     
     # BINARY LOGGING #
-    log-bin                        = {mysql_dir}/mysql-bin
-    expire-logs-days               = 14
-    sync-binlog                    = 1
-    binlog-format                  = MIXED
+    log-bin
 
     # CACHES AND LIMITS #
     max-connections                = {max_connections}
@@ -89,11 +85,10 @@ def output_my_cnf(_metaconf):
 
     # LOGGING #
     log-error                      = {log_error}
-    log-queries-not-using-indexes  = 1
     slow-query-log                 = 1
     slow-query-log-file            = {slow_query_log_file}
     log-queries-not-using-indexes  = OFF
-    long_query_time                = 2
+    long_query_time                = 30
 
     [mysqldump]
     max-allowed-packet             = 16M
