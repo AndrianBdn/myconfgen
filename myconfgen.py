@@ -8,6 +8,12 @@ from textwrap import dedent
 defaults = {
     'mysql_dir' : "/var/lib/mysql",
 
+    'log_error' : "/var/log/mysqld.log", 
+    'slow_query_log_file' : "/var/log/mysqld-slow.log", 
+    
+    'pid_file' : "/var/run/mysqld/mysqld.pid", 
+
+
     'mysql_ram_gb' : 1, 
     
     'query_cache_type' : 0, 
@@ -35,7 +41,7 @@ def output_my_cnf(_metaconf):
     user                           = mysql
     default-storage-engine         = InnoDB
     socket                         = {mysql_dir}/mysql.sock
-    pid-file                       = {mysql_dir}/mysql.pid
+    pid-file                       = {pid_file}
 
     # MyISAM #
     key-buffer-size                = 32M
@@ -82,10 +88,10 @@ def output_my_cnf(_metaconf):
     innodb-buffer-pool-size        = {innodb_buffer_pool_size}
 
     # LOGGING #
-    log-error                      = {mysql_dir}/mysql-error.log
+    log-error                      = {log_error}
     log-queries-not-using-indexes  = 1
     slow-query-log                 = 1
-    slow-query-log-file            = {mysql_dir}/mysql-slow.log
+    slow-query-log-file            = {slow_query_log_file}
     log-queries-not-using-indexes  = OFF
     long_query_time                = 2
 
